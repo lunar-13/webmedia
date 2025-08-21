@@ -42,7 +42,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--background-color);
-    color: var(--text-color);
+    color: var(--accent-color); /* <-- Use the accent color here */
     min-height: 100vh;
     overflow-x: hidden;
     margin: 0;
@@ -270,6 +270,184 @@ body {
     --button-bg: rgba(0, 0, 0, 0.1);
     --button-hover: rgba(0, 0, 0, 0.2);
     --sidebar-background: rgba(255, 255, 255, 0.3);
+}
+
+/* Context Menu Styles */
+.context-menu {
+    position: fixed;
+    background: var(--sidebar-background);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 0.5rem;
+    min-width: 150px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.context-menu.active {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+.context-menu-item {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.context-menu-item:hover {
+    background: var(--button-hover);
+}
+
+.context-menu-item i {
+    width: 16px;
+    text-align: center;
+}
+
+.edit-item {
+    color: var(--text-color);
+}
+
+.delete-item {
+    color: #ff4444;
+}
+
+.delete-item:hover {
+    background: rgba(255, 68, 68, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Music Grid Styles */
+#musicGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.track-card {
+    background: var(--sidebar-background);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 1rem;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.track-card:hover {
+    transform: translateY(-2px);
+}
+
+.track-card .track-info {
+    margin-right: 2rem;
+}
+
+.track-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 0.25rem;
+}
+
+.track-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+.track-options-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.track-card:hover .track-options-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.track-options-btn:hover {
+    background: var(--button-hover);
+    transform: scale(1.1);
+}
+
+/* Track Options Menu */
+.track-options-menu {
+    position: fixed;
+    background: var(--sidebar-background);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 0.5rem;
+    min-width: 150px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    visibility: visible;
+}
+
+.track-options-menu.active {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+.track-options-menu .menu-item {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+}
+
+.track-options-menu .menu-item:hover {
+    background: var(--button-hover);
+}
+
+.track-options-menu .menu-item.remove-track {
+    color: #ff4444;
+}
+
+.track-options-menu .menu-item.remove-track:hover {
+    background: rgba(255, 68, 68, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Media Queries */
