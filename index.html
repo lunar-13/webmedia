@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Media Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+</head>
+<body>
+    <div class="hamburger-menu">
+        <button id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Library</h2>
+            </div>
+            
+            <div class="filter-section">
+                <div class="filter-group">
+                    <h3>Artists</h3>
+                    <ul id="artistList" class="filter-list"></ul>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>Albums</h3>
+                    <ul id="albumList" class="filter-list"></ul>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Playlists</h3>
+                    <ul id="playlistsList" class="filter-list"></ul>
+                    <button id="createPlaylist" class="create-playlist-btn">
+                        <i class="fas fa-plus"></i> New Playlist
+                    </button>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Themes</h3>
+                    <div class="theme-selector">
+                        <div class="theme-mode">
+                            <button id="lightMode" class="theme-btn">
+                                <i class="fas fa-sun"></i> Light
+                            </button>
+                            <button id="darkMode" class="theme-btn active">
+                                <i class="fas fa-moon"></i> Dark
+                            </button>
+                        </div>
+                        <div class="color-picker">
+                            <label>Accent Color</label>
+                            <input type="color" id="accentColor" value="#00ff9d">
+                        </div>
+                        <div class="gradient-presets">
+                            <label>Background Style</label>
+                            <div class="gradient-buttons">
+                                <button class="gradient-btn active" data-gradient="default">Default</button>
+                                <button class="gradient-btn" data-gradient="sunset">Sunset</button>
+                                <button class="gradient-btn" data-gradient="ocean">Ocean</button>
+                                <button class="gradient-btn" data-gradient="forest">Forest</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group about-section">
+                    <h3>About</h3>
+                    <div class="about-content">
+                        <p class="version">WebMedia Player v1.0.0</p>
+                        <p class="credits">Created by Aerovonix</p>
+                        <p class="github">GitHub: <a href="#" id="githubLink">Add your GitHub link here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="content-header">
+                <h1>All Music</h1>
+            </div>
+            <div id="musicGrid"></div>
+        </div>
+
+        <div class="player-container">
+        <div class="artwork-container">
+            <img id="albumArt" src="/icons/album.png" alt="Album Artwork">
+        </div>
+        
+        <div class="info-container">
+            <h2 id="trackTitle">No Track Selected</h2>
+            <p id="artistName">Unknown Artist</p>
+        </div>
+
+        <div class="progress-container">
+            <span id="currentTime">0:00</span>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <span id="totalTime">0:00</span>
+        </div>
+
+        <div class="ab-loop-container">
+            <button id="setA">Set A</button>
+            <button id="setB">Set B</button>
+            <button id="clearAB">Clear AB</button>
+        </div>
+
+        <div class="controls-container">
+            <button id="shuffleBtn" class="control-btn">
+                <i class="fas fa-random"></i>
+            </button>
+            <button id="prevBtn" class="control-btn">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button id="playBtn" class="control-btn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="nextBtn" class="control-btn">
+                <i class="fas fa-forward"></i>
+            </button>
+            <button id="repeatBtn" class="control-btn">
+                <i class="fas fa-redo"></i>
+            </button>
+        </div>
+
+        <div class="playlist-container">
+            <h3>Playlist</h3>
+            <ul id="playlist"></ul>
+            <div class="upload-container">
+                <label for="fileInput" class="upload-btn">
+                    <i class="fas fa-plus"></i> Add Music
+                </label>
+                <input type="file" id="fileInput" accept="audio/*" multiple>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
