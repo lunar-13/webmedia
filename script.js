@@ -102,7 +102,7 @@ class MediaPlayer {
                     title: metadata.title || file.name,
                     artist: metadata.artist || 'Unknown Artist',
                     album: metadata.album || 'Unknown Album',
-                    artwork: metadata.artwork || '/icons/album.png'
+                    artwork: metadata.artwork || './icons/album.png'
                 };
                 console.log('Adding track to playlist:', trackInfo);
                 this.playlist.push(trackInfo);
@@ -253,7 +253,7 @@ class MediaPlayer {
         const albumArt = document.getElementById('albumArt');
         
         // Clear previous artwork first
-        albumArt.src = '/icons/album.png';
+        albumArt.src = './icons/album.png';
         
         // Try to get artwork from audio file metadata
         if (track.file instanceof File) {
