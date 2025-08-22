@@ -1,0 +1,46 @@
+{
+    "name": "Example Theme",
+    "author": "Your Name",
+    "version": "1.0",
+    "description": "A brief description of your theme",
+    "colors": {
+        "background": "#0a0a12",
+        "text": "#ffffff",
+        "secondaryText": "#e0e0e0",
+        "accent": "#00ff9d",
+        "buttonBackground": "rgba(255, 255, 255, 0.1)",
+        "buttonHover": "rgba(255, 255, 255, 0.2)",
+        "sidebarBackground": "rgba(0, 0, 0, 0.5)",
+        "overlayBackground": "rgba(0, 0, 0, 0.3)"
+    },
+    "gradients": {
+        "primary": {
+            "type": "linear",
+            "angle": 45,
+            "stops": [
+                {
+                    "color": "#0f0f1a",
+                    "position": 0
+                },
+                {
+                    "color": "#1a1a2e",
+                    "position": 100
+                }
+            ]
+        },
+        "secondary": {
+            "type": "linear",
+            "angle": 45,
+            "stops": [
+                {
+                    "color": "#1f4287",
+                    "position": 0
+                },
+                {
+                    "color": "#2d6cdf",
+                    "position": 100
+                }
+            ]
+        }
+    }
+}

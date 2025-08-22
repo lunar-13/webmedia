@@ -3,162 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Player</title>
-    <link rel="stylesheet" href="style.css">
+    <title>WebMedia Theme Editor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="hamburger-menu">
-        <button id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-
     <div class="app-container">
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <h2>Library</h2>
-            </div>
-            
-            <div class="filter-section">
-                <div class="filter-group">
-                    <h3>Artists</h3>
-                    <ul id="artistList" class="filter-list"></ul>
+        <div class="header">
+            <a href="../index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Player
+            </a>
+            <h1>WebMedia Theme Editor</h1>
+        </div>
+
+        <div class="editor-container">
+            <div class="theme-preview">
+                <h2>Live Preview</h2>
+                <div class="preview-window">
+                    <div class="preview-header"></div>
+                    <div class="preview-content"></div>
+                    <div class="preview-player"></div>
                 </div>
-                
-                <div class="filter-group">
-                    <h3>Albums</h3>
-                    <ul id="albumList" class="filter-list"></ul>
+            </div>
+
+            <div class="theme-form">
+                <h2>Theme Settings</h2>
+                <div class="metadata-section">
+                    <h3>Theme Metadata</h3>
+                    <div class="form-group">
+                        <label for="themeName">Theme Name</label>
+                        <input type="text" id="themeName" placeholder="My Awesome Theme">
+                    </div>
+                    <div class="form-group">
+                        <label for="themeAuthor">Author</label>
+                        <input type="text" id="themeAuthor" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="themeVersion">Version</label>
+                        <input type="text" id="themeVersion" placeholder="1.0">
+                    </div>
+                    <div class="form-group">
+                        <label for="themeDescription">Description</label>
+                        <textarea id="themeDescription" placeholder="A brief description of your theme"></textarea>
+                    </div>
                 </div>
 
-                <div class="filter-group">
-                    <h3>Playlists</h3>
-                    <ul id="playlistsList" class="filter-list"></ul>
-                    <button id="createPlaylist" class="create-playlist-btn">
-                        <i class="fas fa-plus"></i> New Playlist
+                <div class="colors-section">
+                    <h3>Colors</h3>
+                    <div class="form-group">
+                        <label for="backgroundColor">Background Color</label>
+                        <input type="color" id="backgroundColor">
+                    </div>
+                    <div class="form-group">
+                        <label for="textColor">Text Color</label>
+                        <input type="color" id="textColor">
+                    </div>
+                    <div class="form-group">
+                        <label for="secondaryText">Secondary Text Color</label>
+                        <input type="color" id="secondaryText">
+                    </div>
+                    <div class="form-group">
+                        <label for="accentColor">Accent Color</label>
+                        <input type="color" id="accentColor">
+                    </div>
+                </div>
+
+                <div class="gradients-section">
+                    <h3>Gradients</h3>
+                    <div class="gradient-group">
+                        <h4>Primary Gradient</h4>
+                        <div class="form-group">
+                            <label for="primaryGradientStart">Start Color</label>
+                            <input type="color" id="primaryGradientStart">
+                        </div>
+                        <div class="form-group">
+                            <label for="primaryGradientEnd">End Color</label>
+                            <input type="color" id="primaryGradientEnd">
+                        </div>
+                        <div class="form-group">
+                            <label for="primaryGradientAngle">Angle (degrees)</label>
+                            <input type="number" id="primaryGradientAngle" value="45" min="0" max="360">
+                        </div>
+                    </div>
+
+                    <div class="gradient-group">
+                        <h4>Secondary Gradient</h4>
+                        <div class="form-group">
+                            <label for="secondaryGradientStart">Start Color</label>
+                            <input type="color" id="secondaryGradientStart">
+                        </div>
+                        <div class="form-group">
+                            <label for="secondaryGradientEnd">End Color</label>
+                            <input type="color" id="secondaryGradientEnd">
+                        </div>
+                        <div class="form-group">
+                            <label for="secondaryGradientAngle">Angle (degrees)</label>
+                            <input type="number" id="secondaryGradientAngle" value="45" min="0" max="360">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="background-section">
+                    <h3>Background Settings</h3>
+                    <div class="form-group">
+                        <label for="buttonBackground">Button Background</label>
+                        <input type="text" id="buttonBackground" placeholder="rgba(255, 255, 255, 0.1)">
+                    </div>
+                    <div class="form-group">
+                        <label for="buttonHover">Button Hover</label>
+                        <input type="text" id="buttonHover" placeholder="rgba(255, 255, 255, 0.2)">
+                    </div>
+                    <div class="form-group">
+                        <label for="sidebarBackground">Sidebar Background</label>
+                        <input type="text" id="sidebarBackground" placeholder="rgba(0, 0, 0, 0.5)">
+                    </div>
+                    <div class="form-group">
+                        <label for="overlayBackground">Overlay Background</label>
+                        <input type="text" id="overlayBackground" placeholder="rgba(0, 0, 0, 0.3)">
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="exportTheme" class="btn primary">
+                        <i class="fas fa-download"></i> Export Theme
                     </button>
+                    <button id="importTheme" class="btn secondary">
+                        <i class="fas fa-upload"></i> Import Theme
+                    </button>
+                    <input type="file" id="themeFileInput" accept=".wmtheme" style="display: none;">
                 </div>
-
-                <div class="filter-group">
-                    <h3>Themes</h3>
-                    <div class="theme-selector">
-                        <div class="theme-mode">
-                            <button id="lightMode" class="theme-btn">
-                                <i class="fas fa-sun"></i> Light
-                            </button>
-                            <button id="darkMode" class="theme-btn active">
-                                <i class="fas fa-moon"></i> Dark
-                            </button>
-                        </div>
-                        <div class="color-picker">
-                            <label>Accent Color</label>
-                            <input type="color" id="accentColor" value="#00ff9d">
-                        </div>
-                        <div class="gradient-presets">
-                            <label>Background Style</label>
-                            <div class="gradient-buttons">
-                                <button class="gradient-btn active" data-gradient="default">Default</button>
-                                <button class="gradient-btn" data-gradient="sunset">Sunset</button>
-                                <button class="gradient-btn" data-gradient="ocean">Ocean</button>
-                                <button class="gradient-btn" data-gradient="forest">Forest</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="filter-group about-section">
-                    <h3>About</h3>
-                    <div class="about-content">
-                        <p class="version">WebMedia Player v1.0.1</p>
-                        <p class="credits">Created by Aerovonix</p>
-                        <p class="github">GitHub: <a href="#" id="githubLink">https://github.com/lunar-13/webmedia</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="main-content">
-            <div class="content-header">
-                <h1>All Music</h1>
-            </div>
-            <div id="musicGrid"></div>
-            
-            <!-- Track Options Menu -->
-            <div id="trackOptionsMenu" class="track-options-menu">
-                <div class="menu-item edit-track">
-                    <i class="fas fa-pencil-alt"></i> Edit
-                </div>
-                <div class="menu-item remove-track">
-                    <i class="fas fa-trash"></i> Remove
-                </div>
-            </div>
-        </div>
-
-        <div class="player-container">
-        <div class="artwork-container">
-            <img id="albumArt" src="./icons/album.png" alt="Album Artwork">
-        </div>
-        
-        <div class="info-container">
-            <h2 id="trackTitle">No Track Selected</h2>
-            <p id="artistName">Unknown Artist</p>
-        </div>
-
-        <div class="progress-container">
-            <span id="currentTime">0:00</span>
-            <div class="progress-bar">
-                <div class="progress"></div>
-            </div>
-            <span id="totalTime">0:00</span>
-        </div>
-
-        <div class="ab-loop-container">
-            <button id="setA">Set A</button>
-            <button id="setB">Set B</button>
-            <button id="clearAB">Clear AB</button>
-        </div>
-
-        <div class="controls-container">
-            <button id="shuffleBtn" class="control-btn">
-                <i class="fas fa-random"></i>
-            </button>
-            <button id="prevBtn" class="control-btn">
-                <i class="fas fa-backward"></i>
-            </button>
-            <button id="playBtn" class="control-btn">
-                <i class="fas fa-play"></i>
-            </button>
-            <button id="nextBtn" class="control-btn">
-                <i class="fas fa-forward"></i>
-            </button>
-            <button id="repeatBtn" class="control-btn">
-                <i class="fas fa-redo"></i>
-            </button>
-        </div>
-
-        <div class="playlist-container">
-            <h3>Playlist</h3>
-            <ul id="playlist"></ul>
-            <div class="upload-container">
-                <label for="fileInput" class="upload-btn">
-                    <i class="fas fa-plus"></i> Add Music
-                </label>
-                <input type="file" id="fileInput" accept="audio/*" multiple>
             </div>
         </div>
     </div>
-
-    <!-- Custom Context Menu -->
-    <div id="contextMenu" class="context-menu">
-        <div class="context-menu-item edit-item">
-            <i class="fas fa-pencil-alt"></i> Edit
-        </div>
-        <div class="context-menu-item delete-item">
-            <i class="fas fa-trash"></i> Remove
-        </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>

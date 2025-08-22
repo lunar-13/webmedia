@@ -1,0 +1,46 @@
+{
+    "name": "Lilac Black",
+    "author": "Aerovonix",
+    "version": "1.0",
+    "description": "A midnight purple theme for WMPlayer",
+    "colors": {
+        "background": "#110b11ff",
+        "text": "#fbddffff",
+        "secondaryText": "#f5aaffff",
+        "accent": "#d13affff",
+        "buttonBackground": "rgba(255, 255, 255, 0.1)",
+        "buttonHover": "rgba(71, 0, 73, 0.31)",
+        "sidebarBackground": "rgba(0, 0, 0, 0.5)",
+        "overlayBackground": "rgba(0, 0, 0, 0.3)"
+    },
+    "gradients": {
+        "primary": {
+            "type": "linear",
+            "angle": 45,
+            "stops": [
+                {
+                    "color": "#120016ff",
+                    "position": 0
+                },
+                {
+                    "color": "#4c005cff",
+                    "position": 100
+                }
+            ]
+        },
+        "secondary": {
+            "type": "linear",
+            "angle": 45,
+            "stops": [
+                {
+                    "color": "#1f4287",
+                    "position": 0
+                },
+                {
+                    "color": "#2d6cdf",
+                    "position": 100
+                }
+            ]
+        }
+    }
+}

@@ -1,6 +1,6 @@
 # WebMedia Player
 
-A modern, lightweight web-based media player with support for various audio formats and a sleek interface.
+A modern, lightweight web-based media player with support for various audio formats, custom themes, and a sleek interface.
 
 ![WebMedia Player](icons/album.png)
 
@@ -8,17 +8,55 @@ A modern, lightweight web-based media player with support for various audio form
 
 - 🎵 Support for multiple audio formats (MP3, WAV)
 - 🎨 Modern, responsive three-panel layout
-- 🌓 Dark/Light theme support with customizable accent colors
-- 📊 Smart music organization by artist and album
-- 🖼️ Album artwork display support
-- 📱 Mobile-friendly responsive design
-- 🎯 Advanced playback controls:
+- � Advanced playback controls:
   - Play/Pause
   - Next/Previous track
   - Shuffle mode
   - Repeat modes (none, one, all)
   - A-B loop functionality
   - Progress bar with seek capability
+- 📊 Smart music organization:
+  - Browse by artist
+  - Browse by album
+  - Create custom playlists
+- 🎨 Advanced Theme System:
+  - Built-in dark themes
+  - Custom theme support (.wmtheme format)
+  - Visual theme editor
+  - Real-time theme preview
+  - Import/Export themes
+- 📱 Mobile-friendly responsive design
+- 💾 Persistent storage:
+  - Saves playlists
+  - Remembers theme settings
+  - Tracks storage usage
+
+## Theme System
+
+WebMedia Player includes a powerful theme system that allows for complete customization of the player's appearance:
+
+### Built-in Themes
+- Default Dark - A clean, modern dark theme
+- Sunset Vibes - A warm, sunset-inspired color scheme
+- Ocean Deep - A calming, ocean-inspired theme
+
+### Custom Themes
+Create your own themes using the built-in theme editor or by creating .wmtheme files. Themes can customize:
+- Background colors
+- Text colors
+- Accent colors
+- Button styles
+- Custom gradients
+- Transparency levels
+
+### Theme Editor
+Access the visual theme editor by clicking "Theme Editor" in the themes section. Features include:
+- Live preview window
+- Color pickers for all elements
+- Gradient customization
+- Opacity controls
+- Metadata editing
+- One-click export to .wmtheme format
 
 ## Getting Started
 
@@ -52,9 +90,11 @@ WebMedia Player works best in modern browsers that support:
 - Pure JavaScript with no framework dependencies
 - CSS Grid and Flexbox for layout
 - CSS Variables for theming
-- Local Storage for saving preferences and playlists
+- Local Storage for settings persistence
+- IndexedDB for audio storage
 - Web Audio API for audio processing
 - MediaTags for metadata extraction
+- CSS Backdrop Filter for modern glass effects
 
 ## License
 
